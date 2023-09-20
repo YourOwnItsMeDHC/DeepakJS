@@ -10,5 +10,16 @@
     <div id="root">
       <h1>Hello Deepak - Using HTML</h1>
     </div>
+
+    <!-- "Hello Deepak" using Javascript  -->
+    <script>
+      // Created heading element
+      const heading = document.createElement("h1");
+      heading.innerHTML = "Hello Deepak using Javascript";
+
+      // Putting created h1 element onto the "root" div
+      const root = document.getElementById("root");
+      root.appendChild(heading);
+    </script>
   </body>
 </html>
