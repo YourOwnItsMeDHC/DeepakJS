@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DeepakJS</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <!-- "Hello Deepak" using HTML  -->
     <div id="root">
-      <h1>Hello Deepak - Using HTML</h1>
+      <!-- <h1>Hello Deepak - Using HTML</h1> -->
     </div>
 
     <!-- "Hello Deepak" using Javascript  -->
-    <script>
+    <!-- <script>
       // Created heading element
       const heading = document.createElement("h1");
       heading.innerHTML = "Hello Deepak using Javascript";
@@ -20,7 +21,7 @@
       // Putting created h1 element onto the "root" div
       const root = document.getElementById("root");
       root.appendChild(heading);
-    </script>
+    </script> -->
 
     <!-- Injecting CDN links, to use React functionality -->
     <script
@@ -33,12 +34,6 @@
     ></script>
 
     <!-- "Hello Deepak" using Javascript  -->
-    <script>
-      const head = React.createElement("h1", {}, "Hello Deepak using ReactJs");
-
-      const roott = ReactDOM.createRoot(document.getElementById("root"));
-
-      roott.render(head);
-    </script>
+    <script src="App.js"></script>
   </body>
 </html>
