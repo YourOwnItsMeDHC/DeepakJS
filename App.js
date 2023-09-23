@@ -30,7 +30,29 @@ const parent = React.createElement(
     React.createElement("h1", {}, "I'm H1 Tag")
   )
 );
-root.render(parent);
+// root.render(parent);
+
+// Complex HTML Structure  :
+//When we want to add multiple children, we pass that as an array
+//Example :
+// <div id="container">
+//     <h1>Heading-1 Using ReactJs</h1>
+//     <h1>Heading-2 Using ReactJs</h1>
+// </div>
+
+const head1 = React.createElement("h1", {}, "Heading-1 Using ReactJs");
+
+const head2 = React.createElement("h1", {}, "Heading-2 Using ReactJS");
+
+const cont = React.createElement(
+  "div",
+  {
+    id: "container",
+  },
+  [head1, head2]
+);
+
+root.render(cont);
 
 //render h1 inside root
 //render ==> to give/provide something
