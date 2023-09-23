@@ -14,6 +14,24 @@ console.log(heading); //object
 // Third argument in React.createElement() is "children" i.e. what these particular element should consist
 //Putting these newly created h1 tag inside "root"
 
+//When we want to add multiple children
+//Example :
+//<div id="parent">
+// <div id="child">
+//   <h1>I'm H1 tag</h1>
+// </div>
+//</div>
+const parent = React.createElement(
+  "div",
+  { id: "parent" },
+  React.createElement(
+    "div",
+    { id: "child" },
+    React.createElement("h1", {}, "I'm H1 Tag")
+  )
+);
+root.render(parent);
+
 //render h1 inside root
 //render ==> to give/provide something
-root.render(heading);
+// root.render(heading);
