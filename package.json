@@ -1,0 +1,27 @@
+{
+  "name": "deepakjs",
+  "version": "1.0.0",
+  "description": "Reacting on react",
+  "main": "App.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build App.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "React",
+    "Deepak",
+    "Software",
+    "Developer"
+  ],
+  "type": "module",
+  "author": "Deepak Chourasiya",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
