@@ -2,7 +2,6 @@
   "name": "deepakjs",
   "version": "1.0.0",
   "description": "Reacting on react",
-  "main": "App.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build App.js",
@@ -23,5 +22,8 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
-  }
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }

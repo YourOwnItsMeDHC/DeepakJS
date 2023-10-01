@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 //React.createElement(elemName, props, content / what_all_things_I_wanna_put)
 //props {} , will store attributes of elemName
 const heading = React.createElement(
