@@ -9,7 +9,7 @@ const heading = React.createElement(
   "Hello Deepak using ReactJs"
 );
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// const root = ReactDOM.createRoot(document.getElementById("root"));
 
 console.log(heading); //object
 
@@ -55,8 +55,23 @@ const cont = React.createElement(
   [head1, head2]
 );
 
-root.render(cont);
+// root.render(cont);
 
 //render h1 inside root
 //render ==> to give/provide something
 // root.render(heading);
+
+// ******************************* JSX **********************************
+// JSX ==> HTML like syntax or XML like syntax
+//JSX - It's getting transpiled, before it reaches the JSX
+// JSX ==> Babel trasnpiles it to ==> React.createElement ==> React element - JS object ==> HTMLElement(render)
+// In JSX, attributes should be in camel case
+const jsxHeading = (
+  <h1 id="heading" className="head">
+    I am JSX heading
+  </h1>
+);
+console.log(jsxHeading); //Object
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(jsxHeading);

@@ -4,7 +4,7 @@
   "description": "Reacting on react",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build App.js",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "keywords": [
