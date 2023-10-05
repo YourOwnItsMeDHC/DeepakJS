@@ -5,3 +5,28 @@ body {
 #heading {
   color: blueviolet;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.logo {
+  width: 7.063rem; /* 113px */
+  height: 7.063rem; /* 113px */
+}
+
+.nav-items {
+  padding: 0rem 1.25rem; /* 0px 20px */
+}
+.nav-items > ul {
+  display: flex;
+  font-size: 1.5rem; /* 24px */
+  list-style-type: none;
+}
+
+.nav-items > ul > li {
+  margin: 0.625rem; /* 10px */
+  padding: 0.625rem; /* 10px */
+}
