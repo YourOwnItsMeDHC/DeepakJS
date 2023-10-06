@@ -30,3 +30,24 @@ body {
   margin: 0.625rem; /* 10px */
   padding: 0.625rem; /* 10px */
 }
+
+.search {
+  padding: 0.625rem; /* 10px */
+}
+
+.res-card {
+  width: 12.5rem; /* 200px */
+  height: 18.75rem; /* 300px */
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.res-logo {
+  width: 100%;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
