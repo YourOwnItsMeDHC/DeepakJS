@@ -35,10 +35,14 @@ body {
   padding: 0.625rem; /* 10px */
 }
 
+.res-logo {
+  border-radius: 15px;
+}
 .res-card {
   width: 12.5rem; /* 200px */
   padding: 5px;
   margin: 5px;
+  border-radius: 15px;
 }
 
 .res-card:hover {
@@ -52,5 +56,5 @@ body {
 .res-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
