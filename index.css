@@ -49,8 +49,13 @@ body {
   cursor: pointer;
   border: 1px solid black;
 }
+
 .res-logo {
   width: 100%;
+}
+
+.res-logo:hover {
+  transform: rotate(-5deg);
 }
 
 .res-container {
