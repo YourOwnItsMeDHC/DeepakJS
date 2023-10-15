@@ -19,7 +19,7 @@ import resList from "../utils/mockData";
 // Here, the scope of these state variable will be inside that particular component only, where it is getting used
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
   // Above line , is just array destructuring, of an array "useState(resList)"
   // Array destructuring : https://www.freecodecamp.org/news/array-vs-object-destructuring-in-javascript/
@@ -96,9 +96,23 @@ const Body = () => {
 
     const json = await data.json();
     console.log(json);
-    // setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setListOfRestaurants(resList);
+    setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    //setListOfRestaurants(resList);
   };
+
+  // If nothing got fetched from an API, we will update it by default restaurants
+  if (listOfRestaurants === undefined) {
+    setTimeout(() => {
+      setListOfRestaurants(resList);
+    }, 2000);
+    return <h1>Loading...........</h1>;
+  }
+
+  // If it is able to fetch restaurants from an API, but it takes time, so by that time, shimmering or loading
+  // effect will be there
+  if (listOfRestaurants === 0) {
+    return <h1>Loading...........</h1>;
+  }
 
   return (
     <div className="body">
