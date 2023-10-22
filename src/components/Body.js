@@ -4,6 +4,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 
 import resList from "../utils/mockData";
+import Shimmer from "./Shimmer";
 
 // React hook is just a normal utility function
 // It gives useState() function , which we need to import first
@@ -105,13 +106,13 @@ const Body = () => {
     setTimeout(() => {
       setListOfRestaurants(resList);
     }, 2000);
-    return <h1>Loading...........</h1>;
+    return <Shimmer />;
   }
 
   // If it is able to fetch restaurants from an API, but it takes time, so by that time, shimmering or loading
   // effect will be there
   if (listOfRestaurants === 0) {
-    return <h1>Loading...........</h1>;
+    return <Shimmer />;
   }
 
   return (

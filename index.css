@@ -69,3 +69,34 @@ body {
   padding: 10px;
   cursor: pointer;
 }
+
+/* FOR SHIMMER UI EFFECT */
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 400px;
+  margin: 20px;
+  background-color: #f0f0f0;
+}
+
+.imgOfCard {
+  width: 170px;
+  height: 130px;
+  margin: 15px;
+  background-color: #a1949431;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+.descOfCard {
+  width: 170px;
+  height: 10px;
+  margin: 15px;
+  background-color: #a1949431;
+  border: 1px solid white;
+}
+/* FOR SHIMMER UI EFFECT */
