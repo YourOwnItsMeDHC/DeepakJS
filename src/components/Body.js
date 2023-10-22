@@ -101,6 +101,8 @@ const Body = () => {
     //setListOfRestaurants(resList);
   };
 
+  // ****************** Conditional Rendering ************************************
+  // Rendering on the basis of a condition is known as Conditional Rendering
   // If nothing got fetched from an API, we will update it by default restaurants
   if (listOfRestaurants === undefined) {
     setTimeout(() => {
@@ -109,6 +111,7 @@ const Body = () => {
     return <Shimmer />;
   }
 
+  // ****************** Conditional Rendering ************************************
   // If it is able to fetch restaurants from an API, but it takes time, so by that time, shimmering or loading
   // effect will be there
   if (listOfRestaurants === 0) {
