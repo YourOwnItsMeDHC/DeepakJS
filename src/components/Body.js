@@ -107,6 +107,7 @@ const Body = () => {
   if (listOfRestaurants === undefined) {
     setTimeout(() => {
       setListOfRestaurants(resList);
+      <Shimmer />;
     }, 2000);
     return <Shimmer />;
   }
