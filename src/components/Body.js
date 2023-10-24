@@ -23,6 +23,13 @@ const Body = () => {
   console.log("Body Rendered");
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
+  // Instead of updating listOfRestaurants, we will update another state variable "filteredRestaurant"
+  // And, we will keep listOfRestaurants for reference purpose, we won't update it
+  // We will only be updating listOfRestaurants only once, when we are fetching it from an API.
+  // We will put default list of restaurants i.e. resList in these filteredRestaurants, so the very first time
+  // When our website gets loaded, it will display these default list of restaurants i.e. resList
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
   const [searchText, setSearchText] = useState("");
   // Whenever state variable updates, react triggers a reconciliation cycle(re-renders the component)
 
@@ -102,6 +109,12 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
     setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+
+    // I will update filteredRestaurants with our listOfRestaurants
+    // Instead of updating listOfRestaurants, we will update another state variable "filteredRestaurant"
+    // And, we will keep listOfRestaurants for reference purpose, we won't update it
+    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+
     //setListOfRestaurants(resList);
   };
 
@@ -111,6 +124,12 @@ const Body = () => {
   if (listOfRestaurants === undefined) {
     setTimeout(() => {
       setListOfRestaurants(resList);
+
+      // I will update filteredRestaurants with our listOfRestaurants
+      // Instead of updating listOfRestaurants, we will update another state variable "filteredRestaurant"
+      // And, we will keep listOfRestaurants for reference purpose, we won't update it
+      setFilteredRestaurants(resList);
+
       <Shimmer />;
     }, 2000);
     return <Shimmer />;
@@ -155,18 +174,27 @@ const Body = () => {
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.data.name.toLowerCase().includes(searchText.toLowerCase())
               );
-              setListOfRestaurants(filteredRestaurant);
-              console.log(filteredRestaurant);
+              setFilteredRestaurants(filteredRestaurant);
             }}
           />
           <button
             onClick={() => {
+              // When I search for a particular restaurant, it will display that to me, and also updates
+              // filteredRestaurants state variable
+              // So, the next time when I search for a particular restaurant, it should not search in that
+              // updated restaurants, it should search in the entire 15 original restaurants
+              // If it is not done, then even if we do have a restaurant, it might not get searched
+              // Hence, we should always filter our original restaurants i.e. listOfRestaurants
+              // Here, listOfRestaurants won't get update, because filter() fuinction does not mutate array
+              // Instead,it creates another array which will stored in filteredRestaurant, and I will be using
+              // that newly filtered array "filteredRestaurant"
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.data.name.toLowerCase().includes(searchText.toLowerCase())
               );
 
               if (searchText === "") {
-                setListOfRestaurants(resList); // Then just display default list of restaurants
+                // setListOfRestaurants(resList);
+                setFilteredRestaurants(resList); // Then just display default list of restaurants
               }
               // If no restaurant found which includes text entered in it's name
               // So, filteredRestaurant array will be having length of 0, because,
@@ -175,12 +203,12 @@ const Body = () => {
               // search box field empty, so next time the user can enter correctly
               else if (filteredRestaurant.length === 0) {
                 alert(`No restaurant found with the name ${searchText}`);
-                setListOfRestaurants(resList);
+                setFilteredRestaurants(resList);
                 setSearchText("");
               } else {
-                setListOfRestaurants(filteredRestaurant);
+                setFilteredRestaurants(filteredRestaurant);
                 if (searchText === "") {
-                  setListOfRestaurants(resList); // Then just display default list of restaurants
+                  setFilteredRestaurants(resList); // Then just display default list of restaurants
                 }
               }
             }}
@@ -191,11 +219,10 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const filteredList = listOfRestaurants.filter(
+            const filteredList = filteredRestaurants.filter(
               (res) => res.data.avgRating > 4
             );
-            setListOfRestaurants(filteredList);
-            console.log(filteredList);
+            setFilteredRestaurants(filteredList);
           }}
         >
           Top-Rated Restaurant
@@ -204,7 +231,7 @@ const Body = () => {
       <div className="res-container">
         {/* Applying map function to resList array, in which each element is an object which represents
           an restaurant card, I will take each index i.e. an element and pass it as a value for resData prop */}
-        {listOfRestaurants.map((restaurant) => (
+        {filteredRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.data.id} resData={restaurant} />
         ))}
       </div>
