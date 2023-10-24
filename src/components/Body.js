@@ -20,7 +20,11 @@ import Shimmer from "./Shimmer";
 // Here, the scope of these state variable will be inside that particular component only, where it is getting used
 
 const Body = () => {
+  console.log("Body Rendered");
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  const [searchText, setSearchText] = useState("");
+  // Whenever state variable updates, react triggers a reconciliation cycle(re-renders the component)
 
   // Above line , is just array destructuring, of an array "useState(resList)"
   // Array destructuring : https://www.freecodecamp.org/news/array-vs-object-destructuring-in-javascript/
@@ -122,6 +126,68 @@ const Body = () => {
   return (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            // value of searchText has been tied up with the value attribute
+            // SO, the each time, I will enter something in the search box, searchText state variable
+            // will get updated using setSearchText function
+            value={searchText}
+            // onChange={(e) => {
+            //   setSearchText(e.target.value);
+            //   console.log(searchText);
+            // }}
+            // onClick={() => {
+            //   const filteredRestaurant = listOfRestaurants.filter((res) =>
+            //     res.data.name.toLowerCase().includes(searchText.toLowerCase())
+            //   );
+            //   setListOfRestaurants(filteredRestaurant);
+            //   console.log(filteredRestaurant);
+            // }}
+
+            // below onChange will show filtered restaurants on go i.e. as we keep on typing the name
+            // of restaurant, it will keep on showing us restaurants based on the typed text
+            onChange={(e) => {
+              setSearchText(e.target.value);
+              console.log(searchText);
+
+              const filteredRestaurant = listOfRestaurants.filter((res) =>
+                res.data.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setListOfRestaurants(filteredRestaurant);
+              console.log(filteredRestaurant);
+            }}
+          />
+          <button
+            onClick={() => {
+              const filteredRestaurant = listOfRestaurants.filter((res) =>
+                res.data.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+
+              if (searchText === "") {
+                setListOfRestaurants(resList); // Then just display default list of restaurants
+              }
+              // If no restaurant found which includes text entered in it's name
+              // So, filteredRestaurant array will be having length of 0, because,
+              // it doesn't have any restaurant object
+              // Hence, after showing an alert message, show default list of restaurants, and make that
+              // search box field empty, so next time the user can enter correctly
+              else if (filteredRestaurant.length === 0) {
+                alert(`No restaurant found with the name ${searchText}`);
+                setListOfRestaurants(resList);
+                setSearchText("");
+              } else {
+                setListOfRestaurants(filteredRestaurant);
+                if (searchText === "") {
+                  setListOfRestaurants(resList); // Then just display default list of restaurants
+                }
+              }
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
