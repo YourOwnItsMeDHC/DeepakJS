@@ -7,12 +7,16 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL}></img>
+        <a href="/">
+          <img className="logo" src={LOGO_URL}></img>
+        </a>
       </div>
       <div className="nav-items">
         <ul>
           <li>Home</li>
-          <li>About</li>
+          <li>
+            <a href="/about">About</a>
+          </li>
           <li>Contact</li>
           <li>Cart</li>
           <button
