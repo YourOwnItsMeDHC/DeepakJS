@@ -15,6 +15,8 @@ body {
 .logo {
   width: 7.063rem; /* 113px */
   height: 7.063rem; /* 113px */
+
+  box-shadow: 5px 5px 2px 1px gray;
 }
 
 .nav-items {
@@ -43,13 +45,30 @@ body {
   padding: 5px;
   margin: 5px;
   border-radius: 25px;
+
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow  */
+  /*
+  Specify a single box-shadow using:
+
+Two, three, or four <length> values.
+If only two values are given, they are interpreted as <offset-x> and <offset-y> values.
+If a third value is given, it is interpreted as a <blur-radius>.
+If a fourth value is given, it is interpreted as a <spread-radius>.
+Optionally, the inset keyword.
+Optionally, a <color> value.
+To specify multiple shadows, provide a comma-separated list of shadows.
+*/
+  /* box-shadow: 5px 5px 2px 1px gray; */
+  box-shadow: -1px 5px 10px 5px rgba(112, 112, 112, 0.2);
 }
 
 .res-card:hover {
   cursor: pointer;
   border: 2px solid gray;
 
-  width: 14rem;
+  width: 13.5rem;
+
+  box-shadow: 5px 5px 2px 1px gray;
 }
 
 .res-logo {
