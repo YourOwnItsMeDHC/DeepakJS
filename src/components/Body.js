@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 // React hook is just a normal utility function
 // It gives useState() function , which we need to import first
@@ -232,7 +233,12 @@ const Body = () => {
         {/* Applying map function to resList array, in which each element is an object which represents
           an restaurant card, I will take each index i.e. an element and pass it as a value for resData prop */}
         {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          <Link
+            key={restaurant.data.id}
+            to={"/restaurants/" + restaurant.data.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
