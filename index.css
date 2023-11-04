@@ -156,3 +156,8 @@ To specify multiple shadows, provide a comma-separated list of shadows.
   margin-right: auto;
   width: 50%;
 }
+
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
+}

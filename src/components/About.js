@@ -1,10 +1,19 @@
 import React from "react";
 import Header from "./Header";
 
+import User from "./User";
+import UserClass from "./UserClass";
+
 const About = () => {
   return (
     <>
       <h1>About Page</h1>
+      <User />
+      <UserClass
+        name={"Deepak Chourasiya"}
+        location={"Heart"}
+        contact={"Leave these part"}
+      />
       <div>
         <a href="https://endearing-genie-98de4c.netlify.app/" target="_blank">
           <img
