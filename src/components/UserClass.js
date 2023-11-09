@@ -15,8 +15,8 @@ class UserClass extends React.Component {
     // just like we used to do in the functional components
     // "this.state" is a collection of all the state variables of these particular component i.e. class
     this.state = {
-      count1: 10,
-      count2: 20,
+      count1: 0,
+      count2: 0,
     };
   }
 
@@ -27,6 +27,16 @@ class UserClass extends React.Component {
       <div className="user-card">
         <h1>Value of count1 : {count1}</h1>
         <h1>Value of count2 : {count2}</h1>
+        <button
+          onClick={() => {
+            this.setState({
+              count1: this.state.count1 + 1,
+              count2: this.state.count2 + 1,
+            });
+          }}
+        >
+          Change Value
+        </button>
         <h2>{name}</h2>
         <h3>{location}</h3>
         <h4>{contact}</h4>
