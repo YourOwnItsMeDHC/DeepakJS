@@ -8,7 +8,7 @@ class UserClass extends React.Component {
   constructor(props) {
     super(props);
     console.log(props);
-    console.log("Child Constructor called");
+    console.log(this.props.name + "Constructor called");
 
     // State variable will also get created, at the time of creation of these component's instance
     // state variables will be inside this.state, which means "this" component has these "state" variables.
@@ -22,11 +22,11 @@ class UserClass extends React.Component {
   }
 
   componentDidMount() {
-    console.log("Child has been rendered or mounted");
+    console.log(this.props.name + "componentDidMount() called");
   }
 
   render() {
-    console.log("Child is rendering or mounting...");
+    console.log(this.props.name + "render() called");
     const { name, location, contact } = this.props;
     const { count1, count2 } = this.state;
     return (

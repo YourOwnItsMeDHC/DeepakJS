@@ -19,18 +19,16 @@ class About extends React.Component {
   }
 
   componentDidMount() {
-    console.log("Parent has been rendered or mounted");
+    console.log("Parent componentDidMount() called");
   }
   render() {
-    console.log("Parent is rendering or mounting...");
+    console.log("Parent render() called");
     return (
       <>
         <h1>About Page</h1>
-        <UserClass
-          name={"Deepak Chourasiya"}
-          location={"Heart"}
-          contact={"Leave these part"}
-        />
+        <UserClass name={"First Child "} />
+        <UserClass name={"Second Child "} />
+        <UserClass name={"Third Child "} />
       </>
     );
   }
