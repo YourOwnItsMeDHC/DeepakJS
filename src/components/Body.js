@@ -21,7 +21,7 @@ import { Link } from "react-router-dom";
 // Here, the scope of these state variable will be inside that particular component only, where it is getting used
 
 const Body = () => {
-  console.log("Body Rendered");
+  // console.log("Body Rendered");
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
   // Instead of updating listOfRestaurants, we will update another state variable "filteredRestaurant"

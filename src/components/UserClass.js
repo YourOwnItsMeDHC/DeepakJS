@@ -7,7 +7,7 @@ class UserClass extends React.Component {
   // so we can use all the props from parent component as well
   constructor(props) {
     super(props);
-    console.log(props);
+    // console.log(props);
     console.log(this.props.name + "Constructor called");
 
     // State variable will also get created, at the time of creation of these component's instance
@@ -16,36 +16,44 @@ class UserClass extends React.Component {
     // just like we used to do in the functional components
     // "this.state" is a collection of all the state variables of these particular component i.e. class
     this.state = {
-      count1: 0,
-      count2: 0,
+      userInfo: {
+        name: "dummyName",
+        location: "dumyLocation",
+        avatar_url: "dummyAvatar",
+      },
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     console.log(this.props.name + "componentDidMount() called");
+    const data = await fetch("https://api.github.com/users/YourOwnItsMeDHC");
+    const json = await data.json();
+    console.log(json);
+
+    this.setState({
+      userInfo: json,
+    });
+  }
+
+  componentDidUpdate() {
+    console.log(this.props.name + "componentDidUpdate() called");
+  }
+
+  componentWillUnmount() {
+    console.log(this.props.name + "componentWillUnmount() called");
   }
 
   render() {
     console.log(this.props.name + "render() called");
-    const { name, location, contact } = this.props;
-    const { count1, count2 } = this.state;
+    // const { name, location, contact } = this.props;
+
+    const { name, location, avatar_url } = this.state.userInfo;
+    debugger;
     return (
       <div className="user-card">
-        <h1>Value of count1 : {count1}</h1>
-        <h1>Value of count2 : {count2}</h1>
-        <button
-          onClick={() => {
-            this.setState({
-              count1: this.state.count1 + 1,
-              count2: this.state.count2 + 1,
-            });
-          }}
-        >
-          Change Value
-        </button>
+        <img src={avatar_url}></img>
         <h2>{name}</h2>
         <h3>{location}</h3>
-        <h4>{contact}</h4>
       </div>
     );
   }
