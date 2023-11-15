@@ -7,7 +7,6 @@ class UserClass extends React.Component {
   // so we can use all the props from parent component as well
   constructor(props) {
     super(props);
-    console.log(props);
     console.log(this.props.name + "Constructor called");
 
     // State variable will also get created, at the time of creation of these component's instance
