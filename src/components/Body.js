@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 // React hook is just a normal utility function
 // It gives useState() function , which we need to import first
@@ -118,6 +119,15 @@ const Body = () => {
 
     //setListOfRestaurants(resList);
   };
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return (
+      <h1>
+        Oops! Looks like you're offline!! Please check your internet connection
+      </h1>
+    );
+  }
 
   // ****************** Conditional Rendering ************************************
   // Rendering on the basis of a condition is known as Conditional Rendering
