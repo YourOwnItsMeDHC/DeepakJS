@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 
 import Header from "./components/Header";
@@ -9,6 +9,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
+// import Grocery from "./components/Grocery";
+
 /** ------ Planning of project ---------
    Header
     - Logo
@@ -25,6 +27,8 @@ import Contact from "./components/Contact";
     - Address
     - Contact
  */
+
+const Grocery = lazy(() => import("./components/Grocery"));
 
 // Object of Style, which we will pass as CSS inline styling
 const styleCard = {
@@ -60,6 +64,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,
